@@ -1,0 +1,371 @@
+html, body {
+	/* Основной шрифт страницы */
+	font-family: 'PT Sans Caption', sans-serif;
+	/* размер шрифта */
+	font-size: 16px;
+	/* Базовая высота строчки */
+	line-height: 1.5;
+	min-width: 280px;
+}
+
+/* заставим все картинки отображаться как блоки или как инлайн-блоки. Убираем дополнительный отступ внизу с картинок */
+img {
+	display: inline-block;
+}
+
+a {
+transition: 0.2s ease-out; /* время перехода "0,2s" секунды и тип анимации "ease-out" */
+}
+
+/* универсальный селектор " * " он выбирам все теги на странице */
+* {
+	/* "box-sizing: content-box" меняем на "box-sizing: border-box" таким образом что бы ширину которую мы указали это была реальная ширина блока от рамки до рамкивключая рамку, что бы она невыходила за то значение которое мы указали  */
+		box-sizing: border-box;
+}
+
+
+/*.............................
+
+	GRID Описываем нашу сетку
+
+...............................*/
+.container {
+	width: 1140px;
+	margin-left: auto; /* Выравниваем по центру */
+	margin-right: auto; /* Выравниваем по центру */
+}
+
+/* Псевдо-класс. Когда елементы выстраиваются в один ряд с помощю "float:left/right" то контейнер в которо они находяться не может их коректно обернуть. И что бы контейнер их коректно обернул необходимо сделать сброс обтикания от "float: left/right" */
+.row:after {
+	clear: both; /* очистить потоки обтикания слева и справа */
+	content: ""; /* Указать пустой контент. Если его не указать елемент after не отобразиться */
+	display: table; /* для того что бы он коректно отображался в современных и старых браузерах */
+}
+
+.col-4 {
+	width: 360px;
+	margin-right: 30px; /* отступы между колонками */
+	float: left; /* ставим колонки в один ряд ( что бы колонки обтикали друг друга с левой стороны) */
+}
+
+/* Псевдо класс. Убираем отступ у третей колонки. Выбираем последнию колонку "last-child" */
+.col-4:last-child {
+	margin-right: 0px;
+}
+
+/*.............................
+
+	HEADER
+
+...............................*/	
+
+.header {
+	background: #343c4e;
+	background-image: url("../img/bg/bg-header.jpg");
+	background-repeat: no-repeat; /* для того что бы изображение не дублирывалось */
+	background-position: center; /* спозиционируем изображание */
+	background-size: cover; /* что-бы наш фон растягивался на весь блок */
+	
+	/* делаем высату равной 100% от высоты окна в котором мы просматриваем сайт */
+	height: 100vh; /* height- высота, а vh-идиница измирения которая равна 100% высоты от окна браузера */
+	min-height: 400px;
+	
+	/* начинаем стилизовать текс в нутри header'a */
+	color: #fff;
+	text-align: center; /* выровняли текс по горизонтали по центру */
+	
+	/* Выравниваем текст по вертикале с помощю flix-box */
+	display: flex;
+	flex-direction: column; /* делаем текст в колонку */
+	/* пропишем выравнивание по горизонтали */
+	align-items: center;
+	/* выравниваем по вертикали */
+	justify-content: center;
+	/* делаем блок родительским */
+	position: relative;
+}
+
+.header__title {
+	font-size: 56px;
+	margin-bottom: 30px; /* отступ снизу */
+	font-family: 'Merriweather', serif;
+	/* пододвинем блок на верх, что бы было одинаковая заполнинасть (делаеться для красоты в данном случаи) */
+	margin-top: -50px;
+}
+
+.header__slogan {
+	font-size: 28px;
+	line-height: 42px;
+}
+/* приминяем стили к стрелке */
+.header__arrow {
+	font-size: 48px;
+	width: 60px;        
+	hanging-punctuation: 50px;
+	margin-left: -30px; /* пододвигаем в лева на половину его ширины а даном случаи задали ширину(width) 60px */
+	position: absolute; /* приминяем абсолютное позиционирование */
+	bottom: 50px; /*указуем где она должна быть расположенна ( отступ с низу) */
+	left: 50%; /*указуем где она должна быть расположенна ( отступ с лева/справа) */
+}
+
+/*.............................
+
+PORTFOLIO
+
+...............................*/	
+.portfolio {
+	padding-top: 70px; /* Отступ с верхну сделаем внутринний */
+	padding-bottom: 100px; /* Отступ с низу сделаем внутринний */
+}
+
+/* сделаем отступы на тот случай если захотим даватить еще ряды с работами и что бы между рядами были отступы */
+.portfolio-item {
+	margin-bottom: 20px; /* внешний отступ с низу */
+}
+
+.title {
+	font-size: 46px;
+	margin-bottom: 60px;
+	font-family: 'Merriweather', serif;
+	text-align: center;
+}
+
+.portfolio-item__img {
+	margin-bottom: 17px;
+}
+
+.portfolio-item__img img {
+	max-width: 100%;
+	height: auto;
+}
+
+.portfolio-item__title {
+	font-size: 24px;
+	line-height: normal;
+	margin-bottom: 5px;
+}
+
+.portfolio-item__title a {
+	text-decoration: none;
+	color: #000;
+	border-bottom: 1px solid #FFF;
+}
+
+/* Повидение данной ссыслки при навидении курсором с помощю псевдо-класса HOVER */
+.portfolio-item__title a:hover {
+	color: #0052C2; /* меняем цвет при навидении */
+	border-color: rgba(0, 82, 194, 0.3) /* сеняем цвет нижнего подчеркивания */
+}
+
+.portfolio-item__text p {
+	margin-top: 0; /* верхний отступ */
+	margin-bottom: 15px; /* нижний отступ */
+}
+
+/*.............................
+
+	PORTFOLIO SINGLE PAGE
+
+...............................*/
+.portfolio-sigle-page {
+	padding-top: 50px; /* отступ с верху внутриний */
+	padding-bottom: 50px; /* отступ от ссылки */
+	text-align: center; /* выравниваем текст по центру */
+}
+
+.portfolio-sigle-page img {
+	margin-bottom: 50px; /* отступ между картинкой и ссылкой */
+	max-width: 100%; /* (максимально допустимая ширина для картинки) сделаем что-бы картинка не выходила за пределы контейнера в котором она находиться (если отроют на меньшем екране)*/
+	height: auto; /* высота будет автоматическая */
+}
+
+.button-back {
+	font-weight: 700; /* означает что шрифт жирный (bold) */
+	text-decoration: none;
+	color: #0052C2;
+	/* делаем все буквы заглавными */
+	text-transform: uppercase;
+	/* добавим растаяние между буквами */
+	letter-spacing: 1.6px;
+	 
+	/* далее, так как мы будем работать с данной ссылкой как с кнопкой и она должна иметь свойства блочного елемента но в то же время ее ширина должна равняться ширине контента в нутри нее, то есть ширине словнеобходимо сделать следующие, переопределить ее и прописать - "display: inline-block" */
+	display: inline-block;
+	
+	/* теперь занимаемся рамкой */
+	border-width: 2px;
+	border-color: #0052C2;
+	/* стиль рамки прямая не прерывная линия */
+	border-style: solid;
+	/* делаем скрушление углов рамки */
+	border-radius: 50px;
+	
+	/* добавим внутринии отступы */
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 23px;
+	padding-right: 23px;
+	
+	/* Добавим внешний отступ вниз от кнопки до тектса который идет после нее */
+	margin-bottom: 13px;
+	
+	/* делаем плавный переход для кнопки */
+	transition: 0.2s ease-out; /* время перехода "0,2s" секунды и тип анимации "ease-out" */
+}
+
+/* добовляем кнопки цвет при навидении с помощю псевддо-класса */
+.button-back:hover {
+	color: #fff;
+	background-color: #0052C2;
+}
+
+/*.............................
+
+	FOOTER
+
+...............................*/	
+.footer {
+	background-color: #061634;
+	color: #6479a2;
+	padding-top: 90px;
+	padding-bottom: 190px;
+}
+
+.footer p {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+/* означает что выбирает тег "р" у которого есть класс "footer__name" */
+p.footer__name {
+	font-size: 28px;
+	margin-bottom: 10px;
+	line-height: normal;
+	font-family: 'Merriweather', serif;
+}
+
+p.footer__social {
+	color: #FFF;
+}
+
+p.footer__social-icons {
+	color: #fff;
+	font-size: 32px;
+}
+
+p.footer__social-icons a {
+	color: #fff;
+	text-decoration: none;
+	margin-right: 30px;
+}
+
+p.footer__social-icons a:last-child {
+	margin-right: 0;
+}
+
+p.footer__social-icons a:hover {
+	color: #FFE400;
+}
+
+.button {
+	font-weight: 700; /* означает что шрифт жирный (bold) */
+	text-decoration: none;
+	color: #FFF;
+	/* делаем все буквы заглавными */
+	text-transform: uppercase;
+	/* добавим растаяние между буквами */
+	letter-spacing: 1.6px;
+	 
+	/* далее, так как мы будем работать с данной ссылкой как с кнопкой и она должна иметь свойства блочного елемента но в то же время ее ширина должна равняться ширине контента в нутри нее, то есть ширине словнеобходимо сделать следующие, переопределить ее и прописать - "display: inline-block" */
+	display: inline-block;
+	
+	/* теперь занимаемся рамкой */
+	border-width: 2px;
+	border-color: #fff;
+	/* стиль рамки прямая не прерывная линия */
+	border-style: solid;
+	/* делаем скрушление углов рамки */
+	border-radius: 50px;
+	
+	/* добавим внутринии отступы */
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 23px;
+	padding-right: 23px;
+	
+	/* Добавим внешний отступ вниз от кнопки до тектса который идет после нее */
+	margin-bottom: 13px;
+	
+	/* делаем плавный переход для кнопки */
+	transition: 0.2s ease-out; /* время перехода "0,2s" секунды и тип анимации "ease-out" */
+}
+
+/* добовляем кнопки цвет при навидении с помощю псевддо-класса */
+.button:hover {
+	color: #061634;
+	background-color: #fff;
+}
+
+/*.............................
+
+	MEDIA запросы. Нужны для того что-бы коректно открывалась наша страница на других устройствах с меншим экраном
+
+...............................*/
+
+/* При ширине экрана в 1160px и менее - будет выполнен медиа запрос */
+@media (max-width: 1160px) {
+
+	.container {
+		width: 100%; /* необходимо изменить ширину контейнера так как если ширина страницы будет не большой например 800рх то ширина контейнера не может равняться 1140рх, она должна быть меньше, по этому мы сделаем его гибким/резиновым и задодим его ширину в 100% */
+	}
+
+	.col-4 {
+		width: 100%; /* на мобильном экрана и на планшете наши колонки будут росполагаться не 3-ри в ряд, а по одной колонке в ряд, то есть одна под одной */ /* реальная ширина = width: 100% + border = 0 + padding = 15px + 15px = 100% + 30px, что бы этого небыло,прописываем " box-sizing: border-box; " */
+
+		margin: 0; /* обнулили все отступы в данных колонках */
+		margin-bottom: 30px; /* так как колонки будут росполагаться вертикально, одна под одной, то между ними должны быть отступы */
+		padding-left: 15px; /* делаем отступы с права и с лева, что бы на маленьких экранах текст и картинка не прижималась близко к краям */
+		padding-right: 15px;
+		text-align: center;
+	}
+
+	.header {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.header__title {
+		font-size: 38px;
+		line-height: 48px;
+		margin-bottom: 15px;
+	}
+
+	.header_slogan {
+		font-size: 22px;
+		line-height: 38px;
+	}
+
+	.portfolio {
+		padding-top: 40px;
+		padding-bottom: 50px;
+	}
+
+	.title {
+		font-size: 36px;
+	}
+
+	.footer {
+		padding-top: 70px;
+		padding-bottom: 60px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

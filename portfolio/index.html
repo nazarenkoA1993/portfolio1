@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Мой сайт портфолио</title>
+	
+	<!-- Инструкция для IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<!-- Отображать страницу в масштабе 100% -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Стандартизация и нормализация стилей (привести все стили к одному виду на разных браузерах) капируем этот путь с сайта cdnjs.normalize.css (css библиотека) подключаем с cdn-хранилеща (эти стили будут работать в том случаи если работает интернет) следует подключать перед нашими стилями, так как он сначала выравнивает все стили в браузере а потом подключает наши стили -->
+	<link rel="stylesheet" href="
+     https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+	<!-- Собственные стили -->
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- подключаем стороние шрифты с Google.fonts (те которые нам надо для праекта) смотрим по макету какие шрифты используются -->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather|PT+Sans+Caption:400,700" rel="stylesheet">
+
+	<!-- подключаем иконочный шрифт -->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- подключаем фавиконку (иконка которая отображаеться рядом с названием сайт) -->
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon/download.jpeg">
+</head>
+
+<body>
+
+	<!-- .............................
+
+HEADER
+
+...............................-->
+	<header class="header">
+		<div class="header__title">Артём Назаренко</div>
+		<div class="header__slogan">Верстка сайтов на HTML и CSS<br> HTML5 CSS3 JS JQuery</div>
+		<div class="header__arrow">
+			<!-- делаем стрелку (копируем код с сайта https://fontawesome.com/ заходим в раздел icons) -->
+			<i class="fa fa-chevron-down" aria-hidden="true"></i>
+		</div>
+	</header>
+	<!-- .............................
+
+PORTFOLIO
+
+...............................-->
+	<section class="portfolio">
+		<div class="container">
+
+			<div class="title">
+				Портфолио
+			</div>
+
+			<div class="row">
+				<!-- создаем ряд (имеет смысл создавать ряд если в ряду идет несколько колонок) -->
+
+				<!-- Работа в портфолио -->
+				<div class="col-4">
+					<div class="portfolio-item">
+						<!-- Оборачиваем каждую работу в отдельный контейнер которому мы будем давать определенный отступ снизу на тот случай если у нас будут не 3-работы, а будут два ряда работ или три ряда работ, то между рядами сработами так же будут нужны вертикальные отступы -->
+						<div class="portfolio-item__img">
+							<img src="img/portfolio/project_organica.jpg" alt="Макет Органика">
+						</div>
+						<div class="portfolio-item__title">
+							<a href="work-organica.html">Макет Органика</a>
+						</div>
+						<div class="portfolio-item__text">
+							<p>Верстка одностроничного сайта по PSD макету</p>
+						</div>
+					</div>
+				</div>
+				<!-- // Работа в портфолио -->
+
+				<!-- Работа в портфолио -->
+				<div class="col-4">
+					<div class="portfolio-item">
+						<div class="portfolio-item__img">
+							<img src="img/portfolio/project_apollo.jpg" alt="Учебный макеп Аполло">
+						</div>
+						<div class="portfolio-item__title">
+							<a href="work-apollo.html">Учебный макеп Аполло</a>
+						</div>
+						<div class="portfolio-item__text">
+							<p>Верстка лендинга хостинг компании. Мобильная адаптивность</p>
+						</div>
+					</div>
+				</div>
+				<!-- // Работа в портфолио -->
+
+				<!-- Работа в портфолио -->
+				<div class="col-4">
+					<div class="portfolio-item">
+						<div class="portfolio-item__img">
+							<img src="img/portfolio/project_portfolio.jpg" alt="Личный сайт Портфолио">
+						</div>
+						<div class="portfolio-item__title">
+							<a href="work-portfolio.html">Личный сайт Портфолио</a>
+						</div>
+						<div class="portfolio-item__text">
+							<p>Верстка личного сайта портфолио на котором вы сейчас находитесь </p>
+						</div>
+					</div>
+				</div>
+				<!-- // Работа в портфолио -->
+			</div>
+
+		</div>
+	</section>
+
+	<!-- .............................
+
+FOOTER
+
+...............................-->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-4">
+					<p class="footer__name">© 2019 Артём Назаренко</p>
+					<p>HTML верстка и разработка сайтов</p>
+				</div>
+
+				<div class="col-4">
+					<p class="footer__social">Мои профили в социальных сетях:</p>
+					<!-- Подключаем иконки, а потом делаем их ссылками -->
+					<p class="footer__social-icons">
+						<a href="#" target="_blank">
+							<i class="fa fa-vk" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" target="_blank">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" target="_blank">
+							<i class="fa fa-facebook" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" target="_blank">
+							<i class="fa fa-instagram" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" target="_blank">
+							<i class="fa fa-youtube" aria-hidden="true"></i>
+						</a>
+					</p>
+				</div>
+
+				<div class="col-4">
+					<div><a href="#" class="button" target="_blank">связаться Вконтакте</a> </div>
+					<p>Напиши мне, что бы заказать или узнать<br> стоимость верстки вашего проекта</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>
